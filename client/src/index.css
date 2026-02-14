@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Luxury Dark Theme Palette */
+  /* Background: Rich Black / Deep Charcoal */
+  --background: 240 10% 4%;
+  /* Foreground: Soft White / Silver */
+  --foreground: 0 0% 95%;
+
+  /* Primary: Gold / Champagne */
+  --primary: 45 40% 60%;
+  --primary-foreground: 240 10% 4%;
+
+  /* Secondary: Darker Gray / Slate */
+  --secondary: 240 5% 15%;
+  --secondary-foreground: 0 0% 98%;
+
+  /* Muted: Subtle Gray */
+  --muted: 240 5% 20%;
+  --muted-foreground: 240 5% 65%;
+
+  /* Accent: Bright Gold for highlights */
+  --accent: 45 60% 70%;
+  --accent-foreground: 240 10% 4%;
+
+  /* Destructive: Deep Red */
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+
+  /* Border: Subtle Gray/Gold hint */
+  --border: 240 5% 20%;
+  --input: 240 5% 20%;
+  --ring: 45 40% 60%;
+
+  /* Card backgrounds */
+  --card: 240 6% 7%;
+  --card-foreground: 0 0% 95%;
+
+  --radius: 0.5rem;
+
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply tracking-tight font-medium;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] via-[#F2E8C9] to-[#D4AF37];
+  }
+  
+  .border-gradient-gold {
+    border-image: linear-gradient(to right, #D4AF37, #F2E8C9, #D4AF37) 1;
+  }
+
+  .lux-shadow {
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(212, 175, 55, 0.1);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
